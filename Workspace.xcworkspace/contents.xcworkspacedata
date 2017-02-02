@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:RSGC Organizer/RSGC Organizer.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:What&apos;s The Day iOS/WhatsTheDayiOS.xcodeproj">
    </FileRef>
 </Workspace>
