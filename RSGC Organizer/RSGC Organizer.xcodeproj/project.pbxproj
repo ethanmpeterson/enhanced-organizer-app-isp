@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7399880A1E48B29600713F58 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739988091E48B29600713F58 /* Global.swift */; };
+		7399880C1E48BD6E00713F58 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7399880B1E48BD6E00713F58 /* Student.swift */; };
+		7399880E1E48BD7900713F58 /* Parent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7399880D1E48BD7900713F58 /* Parent.swift */; };
+		739988101E48BD8700713F58 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7399880F1E48BD8700713F58 /* Schedule.swift */; };
 		73B38C6C1E43A44E00FBC9F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B38C6B1E43A44E00FBC9F0 /* AppDelegate.swift */; };
 		73B38C6E1E43A44E00FBC9F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B38C6D1E43A44E00FBC9F0 /* ViewController.swift */; };
 		73B38C711E43A44E00FBC9F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73B38C6F1E43A44E00FBC9F0 /* Main.storyboard */; };
@@ -34,6 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		739988091E48B29600713F58 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		7399880B1E48BD6E00713F58 /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+		7399880D1E48BD7900713F58 /* Parent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parent.swift; sourceTree = "<group>"; };
+		7399880F1E48BD8700713F58 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		73B38C681E43A44E00FBC9F0 /* RSGC Organizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RSGC Organizer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		73B38C6B1E43A44E00FBC9F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73B38C6D1E43A44E00FBC9F0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +107,10 @@
 			children = (
 				73B38C6B1E43A44E00FBC9F0 /* AppDelegate.swift */,
 				73B38C6D1E43A44E00FBC9F0 /* ViewController.swift */,
+				739988091E48B29600713F58 /* Global.swift */,
+				7399880B1E48BD6E00713F58 /* Student.swift */,
+				7399880D1E48BD7900713F58 /* Parent.swift */,
+				7399880F1E48BD8700713F58 /* Schedule.swift */,
 				73B38C6F1E43A44E00FBC9F0 /* Main.storyboard */,
 				73B38C721E43A44E00FBC9F0 /* Assets.xcassets */,
 				73B38C741E43A44E00FBC9F0 /* LaunchScreen.storyboard */,
@@ -262,8 +274,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				739988101E48BD8700713F58 /* Schedule.swift in Sources */,
 				73B38C6E1E43A44E00FBC9F0 /* ViewController.swift in Sources */,
 				73B38C6C1E43A44E00FBC9F0 /* AppDelegate.swift in Sources */,
+				7399880A1E48B29600713F58 /* Global.swift in Sources */,
+				7399880C1E48BD6E00713F58 /* Student.swift in Sources */,
+				7399880E1E48BD7900713F58 /* Parent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,6 +528,7 @@
 				73B38C921E43A44E00FBC9F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		73B38C931E43A44E00FBC9F0 /* Build configuration list for PBXNativeTarget "RSGC OrganizerTests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +537,7 @@
 				73B38C951E43A44E00FBC9F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		73B38C961E43A44E00FBC9F0 /* Build configuration list for PBXNativeTarget "RSGC OrganizerUITests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +546,7 @@
 				73B38C981E43A44E00FBC9F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
