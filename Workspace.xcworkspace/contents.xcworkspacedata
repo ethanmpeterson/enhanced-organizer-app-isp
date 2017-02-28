@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:ISP Proposal.docx">
+   </FileRef>
+   <FileRef
       location = "group:RSGC Organizer/RSGC Organizer.xcodeproj">
    </FileRef>
    <FileRef

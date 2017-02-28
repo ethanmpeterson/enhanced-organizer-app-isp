@@ -27,5 +27,34 @@ class Global { // Will store global variables that must be accessible accross al
         // Day Calendar 2016 - 2017
     ]
     
+    // Time 
+    
+    let date = NSDate()
+    let calendar = NSCalendar.current
+    
+    init() { } // Nothing to initialize so far
+    
+    // Write functions to return time variables used in determining day number
+    
+    private func minute() -> Int {
+        let min = calendar.component(.minute, from: date as Date)
+        return min
+    }
+    
+    private func hour() -> Int {
+        let hour = calendar.component(.hour, from: date as Date)
+        return hour
+    }
+    
+    private func day() -> Int {
+        let day = calendar.component(.day, from: date as Date)
+        return day
+    }
+    
+    private func month() -> Int {
+        let month = calendar.component(.month, from: date as Date)
+        return month
+    }
+    
     //NOTE: More global variables will be adde as they are needed
 }
