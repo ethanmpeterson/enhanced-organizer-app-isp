@@ -9,7 +9,7 @@
 import Foundation
 
 class Schedule : Global {
-    init() {
+    override init() {
         
     }
 }

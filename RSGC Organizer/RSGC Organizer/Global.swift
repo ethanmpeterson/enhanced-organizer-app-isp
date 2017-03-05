@@ -56,5 +56,5 @@ class Global { // Will store global variables that must be accessible accross al
         return month
     }
     
-    //NOTE: More global variables will be adde as they are needed
+    //NOTE: More global variables will be added as they are needed
 }
