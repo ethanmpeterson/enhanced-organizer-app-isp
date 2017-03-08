@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../Database Read Example/Database Read Example.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:ISP Proposal.docx">
    </FileRef>
    <FileRef

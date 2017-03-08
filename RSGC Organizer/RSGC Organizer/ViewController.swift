@@ -6,6 +6,7 @@
 //  Copyright © 2017 Ethan Peterson. All rights reserved.
 //
 
+import Alamofire
 import UIKit
 
 class ViewController: UIViewController {

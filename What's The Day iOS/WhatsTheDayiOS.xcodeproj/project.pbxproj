@@ -16,6 +16,7 @@
 		533124EE1D63A7ED000C231E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533124ED1D63A7ED000C231E /* SettingsViewController.swift */; };
 		5377A1D91D774C2E001E4291 /* RoomNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5377A1D81D774C2E001E4291 /* RoomNumberViewController.swift */; };
 		C0BA22B71D6630B800DDCCE0 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BA22B61D6630B800DDCCE0 /* Schedule.swift */; };
+		D08E49772E70701FF789AB95 /* Pods_WhatsTheDayiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD16991574357AFFCAF15250 /* Pods_WhatsTheDayiOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,9 @@
 		5300132B1D5BF2BC007D88BB /* SetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
 		533124ED1D63A7ED000C231E /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5377A1D81D774C2E001E4291 /* RoomNumberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomNumberViewController.swift; sourceTree = "<group>"; };
+		7D85AE5181A4DF3CF2BD9A4B /* Pods-WhatsTheDayiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsTheDayiOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsTheDayiOS/Pods-WhatsTheDayiOS.debug.xcconfig"; sourceTree = "<group>"; };
+		A9D1BA6E8BF330F6140C7EFF /* Pods-WhatsTheDayiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsTheDayiOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsTheDayiOS/Pods-WhatsTheDayiOS.release.xcconfig"; sourceTree = "<group>"; };
+		AD16991574357AFFCAF15250 /* Pods_WhatsTheDayiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhatsTheDayiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0BA22B61D6630B800DDCCE0 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -37,17 +41,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D08E49772E70701FF789AB95 /* Pods_WhatsTheDayiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0AB54F18243F8C17E5664203 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7D85AE5181A4DF3CF2BD9A4B /* Pods-WhatsTheDayiOS.debug.xcconfig */,
+				A9D1BA6E8BF330F6140C7EFF /* Pods-WhatsTheDayiOS.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		0E925985A3C9F8A1F2524A69 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AD16991574357AFFCAF15250 /* Pods_WhatsTheDayiOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5300130D1D5A4ABD007D88BB = {
 			isa = PBXGroup;
 			children = (
 				530013181D5A4ABD007D88BB /* WhatsTheDayiOS */,
 				530013171D5A4ABD007D88BB /* Products */,
+				0AB54F18243F8C17E5664203 /* Pods */,
+				0E925985A3C9F8A1F2524A69 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,9 +108,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 530013281D5A4ABD007D88BB /* Build configuration list for PBXNativeTarget "WhatsTheDayiOS" */;
 			buildPhases = (
+				5FA7355610F306FC6BF5F9D5 /* [CP] Check Pods Manifest.lock */,
 				530013121D5A4ABD007D88BB /* Sources */,
 				530013131D5A4ABD007D88BB /* Frameworks */,
 				530013141D5A4ABD007D88BB /* Resources */,
+				05BBFF474FFC6631303551F3 /* [CP] Embed Pods Frameworks */,
+				E8B5EE4D52AD3AE2D2FEAF58 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -103,7 +130,7 @@
 		5300130E1D5A4ABD007D88BB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = Wojak;
 				TargetAttributes = {
 					530013151D5A4ABD007D88BB = {
@@ -142,6 +169,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		05BBFF474FFC6631303551F3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhatsTheDayiOS/Pods-WhatsTheDayiOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5FA7355610F306FC6BF5F9D5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E8B5EE4D52AD3AE2D2FEAF58 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhatsTheDayiOS/Pods-WhatsTheDayiOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		530013121D5A4ABD007D88BB /* Sources */ = {
@@ -192,8 +267,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -236,8 +313,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -256,12 +335,14 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		530013291D5A4ABD007D88BB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D85AE5181A4DF3CF2BD9A4B /* Pods-WhatsTheDayiOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -279,6 +360,7 @@
 		};
 		5300132A1D5A4ABD007D88BB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9D1BA6E8BF330F6140C7EFF /* Pods-WhatsTheDayiOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
