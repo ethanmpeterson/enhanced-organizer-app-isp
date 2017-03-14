@@ -20,8 +20,9 @@ class ViewController: UIViewController {
             } else { // if there is no error than continue with JSON parsing
                 if let data = rawData { // safely unwrap json data variable provided by data task
                     do { // safely attempt to initialize the data as a JSON object
-                        let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject // cast JSON object to AnyObject
-                        print(json) // print the json file after its collected
+                        let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSArray // cast JSON object to AnyObject
+                        let user = json?[0] as? NSDictionary
+                        print(user?["First"]) // print first name of user
                     } catch { // run this code if the JSON serialization fails and throws and error
                         // catch an error
                         print("error")
