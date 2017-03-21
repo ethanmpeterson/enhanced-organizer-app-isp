@@ -12,6 +12,13 @@ import Alamofire
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var usernameInput: UITextField!
+    @IBOutlet weak var passwordInput: UITextField!
+    
+    func closeKeyboard() {
+        self.view.endEditing(true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -31,23 +38,40 @@ class ViewController: UIViewController {
 //                print(JSON)
 //                print(JSON?["last_name"])
 //            }
-        let user = "admin"
-        let password = "Gate5416"
+        
+        
+    }
+
+    @IBAction func loginButton(_ sender: UIButton) { // code runs when login button is pressed
+        let user = usernameInput.text
+        let password = passwordInput.text
         
         var headers: HTTPHeaders = [:]
         
-        if let authorizationHeader = Request.authorizationHeader(user: user, password: password) {
+        if let authorizationHeader = Request.authorizationHeader(user: user!, password: password!) {
             headers[authorizationHeader.key] = authorizationHeader.value
         }
         
         Alamofire.request("http://127.0.0.1:8000/get_student/", headers: headers)
             .responseJSON { response in
-                debugPrint(response)
+                if (response.result.isSuccess) {
+                    // parse response to ensure that there is a student ascociated with the user
+                    if let resultVal = response.result.value {
+                        let JSON = resultVal as? NSArray
+                        if (JSON?[0] != nil) {
+                            print("auth success")
+                        } else {
+                            print("auth fail")
+                        }
+                    }
+                }
         }
-        
-        
     }
-
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        closeKeyboard()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
