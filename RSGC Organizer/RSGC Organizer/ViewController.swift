@@ -41,7 +41,7 @@ class ViewController: UIViewController {
         
         
     }
-
+    
     @IBAction func loginButton(_ sender: UIButton) { // code runs when login button is pressed
         let user = usernameInput.text
         let password = passwordInput.text
@@ -60,11 +60,17 @@ class ViewController: UIViewController {
                         let JSON = resultVal as? NSArray
                         if (JSON?[0] != nil) {
                             let student = JSON?[0] as! NSDictionary // initialize student object returned in JSON as a dictionary
-                            print(student["user"])
-                            //Global.user = User.init(endpointURL: <#T##String#>, id: <#T##Int#>)
+                            
                             // navigate to schedule view controller
-                            let scheduleViewObject = self.storyboard?.instantiateViewController(withIdentifier: "scheduleView") as! ScheduleViewController
-                            self.navigationController?.pushViewController(scheduleViewObject, animated: true)
+                            //scheduleViewObject.dataPassed = student
+                            Alamofire.request("http://127.0.0.1:8000/users/\(student["user"] as! Int)/", method: .get).responseJSON { response in
+                                if let rawValue = response.result.value {
+                                    let JSONResponse = rawValue as? NSDictionary
+                                    let scheduleViewObject = self.storyboard?.instantiateViewController(withIdentifier: "scheduleView") as! ScheduleViewController
+                                    scheduleViewObject.dataPassed = JSONResponse
+                                    self.navigationController?.pushViewController(scheduleViewObject, animated: true)
+                                }
+                            }
                         } else {
                             let alert = UIAlertController(title: "Alert", message: "Invalid Credentials", preferredStyle: UIAlertControllerStyle.alert) // show error message if incorrect login is provided
                             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))

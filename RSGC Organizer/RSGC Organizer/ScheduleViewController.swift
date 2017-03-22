@@ -7,13 +7,19 @@
 //
 
 import UIKit
+import Alamofire
 
 class ScheduleViewController: UIViewController {
-
+    
+    var user : User? //= User(username: "ERROR", first: "PLACEHOLDER", last: "McPlaceHolder", email: "place@holder.com", idNum: 0)
+    var dataPassed : NSDictionary?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.setHidesBackButton(true, animated:true)
         // Do any additional setup after loading the view.
+        //let userId = dataPassed?["user"] as! Int
+        print(dataPassed)
     }
 
     override func didReceiveMemoryWarning() {
