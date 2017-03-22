@@ -27,6 +27,8 @@ class Global { // Will store global variables that must be accessible accross al
         // Day Calendar 2016 - 2017
     ]
     
+    static var user : User?
+    
     // Time 
     
     let date = NSDate()

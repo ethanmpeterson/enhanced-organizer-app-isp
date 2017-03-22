@@ -59,11 +59,22 @@ class ViewController: UIViewController {
                     if let resultVal = response.result.value {
                         let JSON = resultVal as? NSArray
                         if (JSON?[0] != nil) {
-                            print("auth success")
+                            let student = JSON?[0] as! NSDictionary // initialize student object returned in JSON as a dictionary
+                            print(student["user"])
+                            //Global.user = User.init(endpointURL: <#T##String#>, id: <#T##Int#>)
+                            // navigate to schedule view controller
+                            let scheduleViewObject = self.storyboard?.instantiateViewController(withIdentifier: "scheduleView") as! ScheduleViewController
+                            self.navigationController?.pushViewController(scheduleViewObject, animated: true)
                         } else {
-                            print("auth fail")
+                            let alert = UIAlertController(title: "Alert", message: "Invalid Credentials", preferredStyle: UIAlertControllerStyle.alert) // show error message if incorrect login is provided
+                            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                            self.present(alert, animated: true, completion: nil)
                         }
                     }
+                } else {
+                    let alert = UIAlertController(title: "Alert", message: "Connection to Server Failed", preferredStyle: UIAlertControllerStyle.alert) // show error message if the request failed
+                    alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
                 }
         }
     }

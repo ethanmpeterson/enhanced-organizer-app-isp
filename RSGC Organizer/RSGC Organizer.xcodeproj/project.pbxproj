@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7344918A1E820F3100662CF2 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734491891E820F3100662CF2 /* ScheduleViewController.swift */; };
+		7344918C1E8215CE00662CF2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7344918B1E8215CE00662CF2 /* User.swift */; };
 		7399880A1E48B29600713F58 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739988091E48B29600713F58 /* Global.swift */; };
 		7399880C1E48BD6E00713F58 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7399880B1E48BD6E00713F58 /* Student.swift */; };
 		7399880E1E48BD7900713F58 /* Parent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7399880D1E48BD7900713F58 /* Parent.swift */; };
@@ -41,6 +43,8 @@
 /* Begin PBXFileReference section */
 		4209019215F8DDE8BF4940B4 /* Pods_RSGC_Organizer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RSGC_Organizer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4529FD46D9E3D5D6F51E60B5 /* Pods-RSGC Organizer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSGC Organizer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RSGC Organizer/Pods-RSGC Organizer.debug.xcconfig"; sourceTree = "<group>"; };
+		734491891E820F3100662CF2 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		7344918B1E8215CE00662CF2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		739988091E48B29600713F58 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		7399880B1E48BD6E00713F58 /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		7399880D1E48BD7900713F58 /* Parent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parent.swift; sourceTree = "<group>"; };
@@ -123,7 +127,9 @@
 			children = (
 				73B38C6B1E43A44E00FBC9F0 /* AppDelegate.swift */,
 				73B38C6D1E43A44E00FBC9F0 /* ViewController.swift */,
+				734491891E820F3100662CF2 /* ScheduleViewController.swift */,
 				739988091E48B29600713F58 /* Global.swift */,
+				7344918B1E8215CE00662CF2 /* User.swift */,
 				7399880B1E48BD6E00713F58 /* Student.swift */,
 				7399880D1E48BD7900713F58 /* Parent.swift */,
 				7399880F1E48BD8700713F58 /* Schedule.swift */,
@@ -353,7 +359,9 @@
 				73B38C6E1E43A44E00FBC9F0 /* ViewController.swift in Sources */,
 				73B38C6C1E43A44E00FBC9F0 /* AppDelegate.swift in Sources */,
 				7399880A1E48B29600713F58 /* Global.swift in Sources */,
+				7344918C1E8215CE00662CF2 /* User.swift in Sources */,
 				7399880C1E48BD6E00713F58 /* Student.swift in Sources */,
+				7344918A1E820F3100662CF2 /* ScheduleViewController.swift in Sources */,
 				7399880E1E48BD7900713F58 /* Parent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
