@@ -42,6 +42,7 @@ class ViewController: UIViewController {
         
     }
     
+    
     @IBAction func loginButton(_ sender: UIButton) { // code runs when login button is pressed
         let user = usernameInput.text
         let password = passwordInput.text
@@ -63,12 +64,33 @@ class ViewController: UIViewController {
                             
                             // navigate to schedule view controller
                             //scheduleViewObject.dataPassed = student
-                            Alamofire.request("http://127.0.0.1:8000/users/\(student["user"] as! Int)/", method: .get).responseJSON { response in
+                            let id = student["user"] as! Int
+                            Alamofire.request("http://127.0.0.1:8000/users/\(id)/", method: .get).responseJSON { response in
                                 if let rawValue = response.result.value {
-                                    let JSONResponse = rawValue as? NSDictionary
-                                    let scheduleViewObject = self.storyboard?.instantiateViewController(withIdentifier: "scheduleView") as! ScheduleViewController
-                                    scheduleViewObject.dataPassed = JSONResponse
-                                    self.navigationController?.pushViewController(scheduleViewObject, animated: true)
+                                    // Get schedule of user
+                                    let studentId = student["id"] as! Int
+                                    let params : [String : Any] = [
+                                        "student":studentId
+                                    ]
+                                    Alamofire.request("http://127.0.0.1:8000/get_schedule/", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+                                        if response.result.isSuccess {
+                                            if let rawResult = response.result.value {
+                                                let JSONScheduleResponse = rawResult as? NSDictionary
+                                                let scheduleId = JSONScheduleResponse?["id"] as! Int
+                                                // build complete user object and 
+//                                                let scheduleViewObject = self.storyboard?.instantiateViewController(withIdentifier: "scheduleView") as! ScheduleViewController
+//                                                self.navigationController?.pushViewController(scheduleViewObject, animated: true)
+                                                // get a hold of schedule
+                                                Alamofire.request("http://127.0.0.1:8000/schedules/\(scheduleId)/", method: .get).responseJSON { response in
+                                                    if let rawVal = response.result.value {
+                                                        let rawScheduleData = rawVal as? NSDictionary
+                                                        // build complete user object and navigate to main View Controller with Schedule display
+                                                        print(rawScheduleData)
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         } else {
