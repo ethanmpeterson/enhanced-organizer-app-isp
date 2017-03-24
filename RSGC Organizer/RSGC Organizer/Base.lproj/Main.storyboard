@@ -173,6 +173,10 @@
                             <constraint firstItem="2ad-Rq-gQU" firstAttribute="trailing" secondItem="O0U-ZN-9hb" secondAttribute="trailing" id="vq7-h0-k29"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backToLoginButton" destination="BCT-HL-Zhx" id="zRJ-cD-4oc"/>
+                        <outlet property="continueButton" destination="VRn-6Y-krE" id="iBq-Uj-qy3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="km8-RR-KtZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

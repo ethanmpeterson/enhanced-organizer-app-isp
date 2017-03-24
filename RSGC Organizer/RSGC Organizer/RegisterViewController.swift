@@ -10,12 +10,18 @@ import UIKit
 
 class RegisterViewController: UIViewController {
 
+    @IBOutlet weak var continueButton: UIButton!
+    @IBOutlet weak var backToLoginButton: UIButton!
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         UIApplication.shared.statusBarStyle = .lightContent
         navigationController!.navigationBar.barTintColor = UIColor(red: 190.0 / 255, green: 25.0 / 255, blue: 46.0 / 255, alpha: 100.0 / 100.0)
         self.navigationController?.navigationBar.tintColor = UIColor.white
+        continueButton.layer.cornerRadius = 15
+        backToLoginButton.layer.cornerRadius = 15
     }
     
     override func viewDidLoad() {
