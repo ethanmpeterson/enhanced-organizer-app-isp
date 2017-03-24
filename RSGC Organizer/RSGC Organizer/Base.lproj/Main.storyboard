@@ -111,7 +111,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="OtS-ZN-hJE"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -121,7 +121,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="RTy-gw-eQv"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -131,7 +131,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="nLH-RM-pxY"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -141,7 +141,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="Myp-eF-G5D"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -166,6 +166,9 @@
                                 <state key="normal" title="Today">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="todayPressed:" destination="bgO-VS-KSh" eventType="touchUpInside" id="3td-bb-qvY"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -198,6 +201,11 @@
                     <navigationItem key="navigationItem" title="Schedule" id="Y6q-3N-2zk"/>
                     <connections>
                         <outlet property="dateDisplay" destination="Uaf-ao-H2D" id="jOj-OO-CvD"/>
+                        <outlet property="dayDisplay" destination="XIK-nG-WW1" id="uOp-MJ-SFV"/>
+                        <outlet property="p1" destination="hVT-nO-kkD" id="FD7-cZ-of5"/>
+                        <outlet property="p2" destination="juL-ba-pCB" id="3sw-4v-Tcb"/>
+                        <outlet property="p3" destination="dDz-5J-hiY" id="osm-6f-Mws"/>
+                        <outlet property="p4" destination="afE-4S-2Li" id="TnE-zf-q1A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sYe-c1-gSB" userLabel="First Responder" sceneMemberID="firstResponder"/>

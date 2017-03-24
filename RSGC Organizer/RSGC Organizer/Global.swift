@@ -10,6 +10,7 @@ import Foundation
 
 // Global is one of the classes making up the model layer of the application.
 class Global { // Will store global variables that must be accessible accross all view controllers
+    
     static let scheduleArray : [[Int]] = [
     
         [9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 4, 1, 2, 3, 9, 9, 4, 1, 2, 3, 4, 9, 9, 1, 2, 3, 4, 1, 9, 9, 2, 3], // January
@@ -29,33 +30,40 @@ class Global { // Will store global variables that must be accessible accross al
     
     static var user : User?
     
-    // Time 
-    
-    let date = NSDate()
-    let calendar = NSCalendar.current
-    
     init() { } // Nothing to initialize so far
     
     // Write functions to return time variables used in determining day number
     
-    private func minute() -> Int {
+    static let minute : () -> (Int) = {
+        let date = NSDate()
+        let calendar = NSCalendar.current
         let min = calendar.component(.minute, from: date as Date)
         return min
     }
     
-    private func hour() -> Int {
+    static let hour : () -> (Int) = {
+        let date = NSDate()
+        let calendar = NSCalendar.current
         let hour = calendar.component(.hour, from: date as Date)
         return hour
     }
     
-    private func day() -> Int {
+    static let day : () -> (Int) = {
+        let date = NSDate()
+        let calendar = NSCalendar.current
         let day = calendar.component(.day, from: date as Date)
         return day
     }
     
-    private func month() -> Int {
+    static let month : () -> (Int) = {
+        let date = NSDate()
+        let calendar = NSCalendar.current
         let month = calendar.component(.month, from: date as Date)
         return month
+    }
+    
+    static let dayNum : () -> (Int) = {
+        return scheduleArray[month() - 1][day()]
     }
     
     //NOTE: More global variables will be added as they are needed

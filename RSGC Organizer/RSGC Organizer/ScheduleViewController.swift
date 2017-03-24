@@ -12,6 +12,12 @@ import Alamofire
 class ScheduleViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var dateDisplay: UITextField!
+    @IBOutlet weak var dayDisplay: UILabel!
+    @IBOutlet weak var p1: UILabel!
+    @IBOutlet weak var p2: UILabel!
+    @IBOutlet weak var p3: UILabel!
+    @IBOutlet weak var p4: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +52,12 @@ class ScheduleViewController: UIViewController, UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         closeKeyboard()
     }
+    
+    // BUTTON FUNCTIONS
+    
+    @IBAction func todayPressed(_ sender: UIButton) { // runs when today button is pressed
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
