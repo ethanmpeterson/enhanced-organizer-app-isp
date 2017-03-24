@@ -14,7 +14,7 @@ class User {
     var lastName : String!
     var email : String!
     var id : Int!
-    var rawData : NSDictionary!
+    var rawData : NSDictionary?
     
     var student : Student?
     
@@ -31,6 +31,17 @@ class User {
         self.username = data["username"] as! String
         self.firstName = data["first_name"] as! String
         self.lastName = data["last_name"] as! String
+        self.email = data["email"] as! String
         self.id = data["id"] as! Int
+    }
+    
+    init(data : NSDictionary, student : Student) {
+        self.rawData = data
+        self.username = data["username"] as! String
+        self.firstName = data["first_name"] as! String
+        self.lastName = data["last_name"] as! String
+        self.email = data["email"] as! String
+        self.id = data["id"] as! Int
+        self.student = student
     }
 }

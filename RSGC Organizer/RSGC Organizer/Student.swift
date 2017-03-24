@@ -13,19 +13,21 @@ class Student {
     let grade : Int!
     let id : Int!
     let ownerId : Int!
-    
+    let rawData : NSDictionary?
     var schedule : Schedule?
     
-    init(grade : Int, id : Int, ownerId : Int, schedule : Schedule) {
-        self.grade = grade
-        self.id = id
-        self.ownerId = ownerId
-        self.schedule = schedule
-    }
-    
     init(data : NSDictionary) {
-        self.grade = data["grade"] as! Int
+        self.grade = Int(data["grade"] as! String)
         self.id = data["id"] as! Int
         self.ownerId = data["user"] as! Int
+        self.rawData = data
+    }
+    
+    init(data : NSDictionary, schedule : Schedule) {
+        self.grade = Int(data["grade"] as! String)
+        self.id = data["id"] as! Int
+        self.ownerId = data["user"] as! Int
+        self.schedule = schedule
+        self.rawData = data
     }
 }

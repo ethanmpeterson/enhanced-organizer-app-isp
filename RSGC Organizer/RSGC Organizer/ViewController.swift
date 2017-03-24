@@ -60,32 +60,36 @@ class ViewController: UIViewController {
                     if let resultVal = response.result.value {
                         let JSON = resultVal as? NSArray
                         if (JSON?[0] != nil) {
-                            let student = JSON?[0] as! NSDictionary // initialize student object returned in JSON as a dictionary
-                            
+                            let studentData = JSON?[0] as! NSDictionary // initialize student object returned in JSON as a dictionary
+                            print(studentData)
                             // navigate to schedule view controller
                             //scheduleViewObject.dataPassed = student
-                            let id = student["user"] as! Int
+                            let id = studentData["user"] as! Int
                             Alamofire.request("http://127.0.0.1:8000/users/\(id)/", method: .get).responseJSON { response in
                                 if let rawValue = response.result.value {
-                                    // Get schedule of user
-                                    let studentId = student["id"] as! Int
-                                    let params : [String : Any] = [
-                                        "student":studentId
+                                    let userData = rawValue as! NSDictionary
+                                    let studentId = studentData["id"] as! Int
+                                    let params : [String : Int] = [
+                                        "student" : studentId,
                                     ]
                                     Alamofire.request("http://127.0.0.1:8000/get_schedule/", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
                                         if response.result.isSuccess {
                                             if let rawResult = response.result.value {
                                                 let JSONScheduleResponse = rawResult as? NSDictionary
                                                 let scheduleId = JSONScheduleResponse?["id"] as! Int
-                                                // build complete user object and 
-//                                                let scheduleViewObject = self.storyboard?.instantiateViewController(withIdentifier: "scheduleView") as! ScheduleViewController
-//                                                self.navigationController?.pushViewController(scheduleViewObject, animated: true)
                                                 // get a hold of schedule
                                                 Alamofire.request("http://127.0.0.1:8000/schedules/\(scheduleId)/", method: .get).responseJSON { response in
                                                     if let rawVal = response.result.value {
-                                                        let rawScheduleData = rawVal as? NSDictionary
+                                                        let rawScheduleData = rawVal as! NSDictionary
                                                         // build complete user object and navigate to main View Controller with Schedule display
                                                         print(rawScheduleData)
+                                                        let schedule = Schedule(data: rawScheduleData)
+                                                        let student = Student(data: studentData, schedule: schedule)
+                                                        print(studentData)
+                                                        Global.user = User(data: userData, student: student)
+                                                        // present new view controller to display the schedule now that all user data has been collected
+                                                        let scheduleViewObject = self.storyboard?.instantiateViewController(withIdentifier: "scheduleView") as! ScheduleViewController // prepare view controller object
+                                                        self.navigationController?.pushViewController(scheduleViewObject, animated: true) // present schedule view controller
                                                     }
                                                 }
                                             }
