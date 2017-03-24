@@ -19,11 +19,24 @@ class ScheduleViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var p4: UILabel!
     
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // style various aspects of the view controller before it is shown
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.setHidesBackButton(true, animated:true)
+        self.navigationItem.setHidesBackButton(true, animated : true)
         // Do any additional setup after loading the view.
         dateDisplay.delegate = self
+        
+        // show initial schedule Data
+        p1.text = Global.user?.student?.schedule?.p1
+        p2.text = Global.user?.student?.schedule?.p2
+        p3.text = Global.user?.student?.schedule?.p3
+        p4.text = Global.user?.student?.schedule?.p4
+        dayDisplay.text = "Day: \(Global.dayNum())"
     }
 
     // TEXT FIELD AND DATEPICKER CODE:

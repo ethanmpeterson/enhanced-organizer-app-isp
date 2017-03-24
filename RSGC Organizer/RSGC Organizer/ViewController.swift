@@ -14,6 +14,8 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var usernameInput: UITextField!
     @IBOutlet weak var passwordInput: UITextField!
+    @IBOutlet weak var login: UIButton!
+    @IBOutlet weak var register: UIButton!
     
     func closeKeyboard() {
         self.view.endEditing(true)
@@ -39,7 +41,8 @@ class ViewController: UIViewController {
 //                print(JSON?["last_name"])
 //            }
         
-        
+        login.layer.cornerRadius = 15
+        register.layer.cornerRadius = 15
     }
     
     
@@ -109,6 +112,10 @@ class ViewController: UIViewController {
                     self.present(alert, animated: true, completion: nil)
                 }
         }
+    }
+    
+    
+    @IBAction func registerButton(_ sender: UIButton) {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
