@@ -79,7 +79,7 @@
         <!--Register-->
         <scene sceneID="Pca-rV-Qty">
             <objects>
-                <viewController title="Register" id="Mwc-i7-JaJ" sceneMemberID="viewController">
+                <viewController title="Register" id="Mwc-i7-JaJ" customClass="RegisterViewController" customModule="RSGC_Organizer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="X0I-ba-NeQ"/>
                         <viewControllerLayoutGuide type="bottom" id="OUO-g5-9Cq"/>
