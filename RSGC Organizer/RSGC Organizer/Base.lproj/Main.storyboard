@@ -196,6 +196,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Schedule" id="Y6q-3N-2zk"/>
+                    <connections>
+                        <outlet property="dateDisplay" destination="Uaf-ao-H2D" id="jOj-OO-CvD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sYe-c1-gSB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
