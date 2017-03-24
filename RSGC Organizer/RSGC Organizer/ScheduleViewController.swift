@@ -31,7 +31,7 @@ class ScheduleViewController: UIViewController, UITextFieldDelegate {
         todayButton.layer.cornerRadius = 15
         
         // Style Navigation Bar
-        navigationController!.navigationBar.barTintColor = UIColor(red: 28.0/255, green: 63.0/255, blue: 148.0/255, alpha: 100.0/100.0) // set navigation bar to RSGC blue color
+        navigationController!.navigationBar.barTintColor = UIColor(red: 28.0 / 255, green: 63.0 / 255, blue: 148.0 / 255, alpha: 100.0 / 100.0) // set navigation bar to RSGC blue color
         navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white] // Make title text white
         UIApplication.shared.statusBarStyle = .lightContent
     }
