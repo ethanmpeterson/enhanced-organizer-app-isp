@@ -216,6 +216,7 @@
                         <outlet property="p2" destination="juL-ba-pCB" id="3sw-4v-Tcb"/>
                         <outlet property="p3" destination="dDz-5J-hiY" id="osm-6f-Mws"/>
                         <outlet property="p4" destination="afE-4S-2Li" id="TnE-zf-q1A"/>
+                        <outlet property="todayButton" destination="SbK-SH-UJs" id="miL-yP-268"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sYe-c1-gSB" userLabel="First Responder" sceneMemberID="firstResponder"/>

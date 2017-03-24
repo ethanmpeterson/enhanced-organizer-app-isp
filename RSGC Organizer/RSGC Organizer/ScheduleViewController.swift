@@ -17,12 +17,28 @@ class ScheduleViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var p2: UILabel!
     @IBOutlet weak var p3: UILabel!
     @IBOutlet weak var p4: UILabel!
+    @IBOutlet weak var todayButton: UIButton!
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         // style various aspects of the view controller before it is shown
+        p1.layer.cornerRadius = 20
+        p2.layer.cornerRadius = 20
+        p3.layer.cornerRadius = 20
+        p4.layer.cornerRadius = 20
+        todayButton.layer.cornerRadius = 15
+        
+        // Style Navigation Bar
+        navigationController!.navigationBar.barTintColor = UIColor(red: 28.0/255, green: 63.0/255, blue: 148.0/255, alpha: 100.0/100.0) // set navigation bar to RSGC blue color
+        navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white] // Make title text white
+        UIApplication.shared.statusBarStyle = .lightContent
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        UIApplication.shared.statusBarStyle = UIStatusBarStyle.default
     }
     
     override func viewDidLoad() {
