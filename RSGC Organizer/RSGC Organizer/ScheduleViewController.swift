@@ -19,6 +19,7 @@ class ScheduleViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var p4: UILabel!
     @IBOutlet weak var todayButton: UIButton!
     
+    var dateChanged : Bool = false
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -41,18 +42,30 @@ class ScheduleViewController: UIViewController, UITextFieldDelegate {
         UIApplication.shared.statusBarStyle = UIStatusBarStyle.default
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.navigationItem.setHidesBackButton(true, animated : true)
-        // Do any additional setup after loading the view.
-        dateDisplay.delegate = self
-        
-        // show initial schedule Data
+    func updateScheduleDisplay(_ dayNum : Int) {
+        Global.user?.student?.schedule?.update(dayNum)
+        // show schedule Data
         p1.text = Global.user?.student?.schedule?.p1
         p2.text = Global.user?.student?.schedule?.p2
         p3.text = Global.user?.student?.schedule?.p3
         p4.text = Global.user?.student?.schedule?.p4
         dayDisplay.text = "Day: \(Global.dayNum())"
+        if (dateChanged) { // only show today button when the user has changed the date
+            todayButton.layer.isHidden = false
+        } else {
+            todayButton.layer.isHidden = true
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationItem.setHidesBackButton(true, animated : true)
+        // Do any additional setup after loading the view.
+        dateDisplay.delegate = self
+        Global.user?.student?.schedule?.update(Global.dayNum())
+        updateScheduleDisplay(Global.dayNum())
+        //p1.text = Global.user?.student?.schedule?.p1
+        //print(Global.user?.student?.schedule?.classes["d\(Global.dayNum())p1"])
     }
 
     // TEXT FIELD AND DATEPICKER CODE:
@@ -70,7 +83,8 @@ class ScheduleViewController: UIViewController, UITextFieldDelegate {
     }
     
     func datePickerChanged(_ sender: UIDatePicker) { // runs when the user selects a new date in the DatePicker
-    
+        dateChanged = true
+        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -85,6 +99,7 @@ class ScheduleViewController: UIViewController, UITextFieldDelegate {
     // BUTTON FUNCTIONS
     
     @IBAction func todayPressed(_ sender: UIButton) { // runs when today button is pressed
+        dateChanged = false
     }
     
     
