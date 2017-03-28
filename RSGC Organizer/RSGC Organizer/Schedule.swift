@@ -51,21 +51,22 @@ class Schedule {
         self.rawData = data
         
         // assign classes based on date and time
-        if (self.dayNumber == 9) {
+        let dayNumber = Global.dayNum()
+        if (dayNumber == 9) {
             self.p1 = "Holiday"
             self.p2 = "Holiday"
             self.p3 = "Holiday"
             self.p4 = "Holiday"
-        } else if (self.dayNumber == 0) {
+        } else if (dayNumber == 0) {
             self.p1 = "Special Event"
             self.p2 = "Special Event"
             self.p3 = "Special Event"
             self.p4 = "Special Event"
         } else {
-            self.p1 = self.classes["d\(self.dayNumber)p1"]
-            self.p2 = self.classes["d\(self.dayNumber)p2"]
-            self.p3 = self.classes["d\(self.dayNumber)p3"]
-            self.p4 = self.classes["d\(self.dayNumber)p4"]
+            self.p1 = self.classes["d\(dayNumber)p1"]
+            self.p2 = self.classes["d\(dayNumber)p2"]
+            self.p3 = self.classes["d\(dayNumber)p3"]
+            self.p4 = self.classes["d\(dayNumber)p4"]
         }
     }
     

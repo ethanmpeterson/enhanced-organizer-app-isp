@@ -62,10 +62,7 @@ class ScheduleViewController: UIViewController, UITextFieldDelegate {
         self.navigationItem.setHidesBackButton(true, animated : true)
         // Do any additional setup after loading the view.
         dateDisplay.delegate = self
-        Global.user?.student?.schedule?.update(Global.dayNum())
         updateScheduleDisplay(Global.dayNum())
-        //p1.text = Global.user?.student?.schedule?.p1
-        //print(Global.user?.student?.schedule?.classes["d\(Global.dayNum())p1"])
     }
 
     // TEXT FIELD AND DATEPICKER CODE:
