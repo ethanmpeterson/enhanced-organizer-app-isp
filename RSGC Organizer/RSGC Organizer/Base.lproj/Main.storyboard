@@ -298,7 +298,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Schedule" id="Y6q-3N-2zk"/>
                     <connections>
-                        <outlet property="dateDisplay" destination="Uaf-ao-H2D" id="jOj-OO-CvD"/>
+                        <outlet property="dateDisplay" destination="Uaf-ao-H2D" id="14i-V6-xBx"/>
                         <outlet property="dayDisplay" destination="XIK-nG-WW1" id="uOp-MJ-SFV"/>
                         <outlet property="p1" destination="hVT-nO-kkD" id="FD7-cZ-of5"/>
                         <outlet property="p2" destination="juL-ba-pCB" id="3sw-4v-Tcb"/>

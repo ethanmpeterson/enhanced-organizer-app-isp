@@ -62,6 +62,14 @@ class Global { // Will store global variables that must be accessible accross al
         return month
     }
     
+    static let dateString : () -> (String) = {
+        let date = NSDate()
+        let calendar = NSCalendar.current
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        return formatter.string(from: date as Date)
+    }
+    
     static let dayNum : () -> (Int) = {
         return scheduleArray[month() - 1][day()]
     }

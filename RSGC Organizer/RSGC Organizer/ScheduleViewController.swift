@@ -49,7 +49,7 @@ class ScheduleViewController: UIViewController, UITextFieldDelegate {
         p2.text = Global.user?.student?.schedule?.p2
         p3.text = Global.user?.student?.schedule?.p3
         p4.text = Global.user?.student?.schedule?.p4
-        dayDisplay.text = "Day: \(Global.dayNum())"
+        dayDisplay.text = "Day: \(dayNum)"
         if (dateChanged) { // only show today button when the user has changed the date
             todayButton.layer.isHidden = false
         } else {
@@ -62,6 +62,7 @@ class ScheduleViewController: UIViewController, UITextFieldDelegate {
         self.navigationItem.setHidesBackButton(true, animated : true)
         // Do any additional setup after loading the view.
         dateDisplay.delegate = self
+        dateDisplay.text = Global.dateString()
         updateScheduleDisplay(Global.dayNum())
     }
 
@@ -81,7 +82,14 @@ class ScheduleViewController: UIViewController, UITextFieldDelegate {
     
     func datePickerChanged(_ sender: UIDatePicker) { // runs when the user selects a new date in the DatePicker
         dateChanged = true
-        
+        let formatter = DateFormatter()
+        let cal = Calendar.current
+        let month = (cal as NSCalendar).component(.month, from: sender.date)
+        let day = (cal as NSCalendar).component(.day, from: sender.date)
+        let changedDayNum = Global.scheduleArray[month - 1][day]
+        formatter.dateStyle = .long
+        dateDisplay.text = formatter.string(from: sender.date)
+        updateScheduleDisplay(changedDayNum)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -97,6 +105,7 @@ class ScheduleViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func todayPressed(_ sender: UIButton) { // runs when today button is pressed
         dateChanged = false
+        updateScheduleDisplay(Global.dayNum())
     }
     
     
