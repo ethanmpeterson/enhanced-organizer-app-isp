@@ -132,6 +132,9 @@
                                 <state key="normal" title="Continue">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="continuePressed:" destination="Mwc-i7-JaJ" eventType="touchUpInside" id="nPA-UA-jJD"/>
+                                </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BCT-HL-Zhx">
                                 <rect key="frame" x="16" y="381" width="343" height="40"/>
@@ -143,6 +146,9 @@
                                 <state key="normal" title="Back to Login">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="backPressed:" destination="Mwc-i7-JaJ" eventType="touchUpInside" id="mC6-db-Uua"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OGA-SO-fjM">
                                 <rect key="frame" x="16" y="227" width="343" height="30"/>
@@ -176,6 +182,10 @@
                     <connections>
                         <outlet property="backToLoginButton" destination="BCT-HL-Zhx" id="zRJ-cD-4oc"/>
                         <outlet property="continueButton" destination="VRn-6Y-krE" id="iBq-Uj-qy3"/>
+                        <outlet property="emailField" destination="nFC-qK-RUX" id="Y5H-eg-r8Z"/>
+                        <outlet property="passwordField" destination="OGA-SO-fjM" id="Nwu-5b-1LQ"/>
+                        <outlet property="reTypePasswordField" destination="O0U-ZN-9hb" id="7Uz-qr-Im3"/>
+                        <outlet property="userField" destination="2ad-Rq-gQU" id="Zar-IF-fZk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="km8-RR-KtZ" userLabel="First Responder" sceneMemberID="firstResponder"/>

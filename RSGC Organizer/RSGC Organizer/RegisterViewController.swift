@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import Alamofire
 
 class RegisterViewController: UIViewController {
 
     @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var backToLoginButton: UIButton!
     
+    @IBOutlet weak var userField: UITextField!
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var reTypePasswordField: UITextField!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -26,10 +31,23 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func continuePressed(_ sender: UIButton) {
+        if (userField.text != "" && emailField.text != "" && passwordField.text != "" && reTypePasswordField.text != "") {
+            
+        } else {
+            // show dialog box telling user to complete all fields
+            let alert = UIAlertController(title: "Error", message: "Please complete all fields.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func backPressed(_ sender: UIButton) {
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
