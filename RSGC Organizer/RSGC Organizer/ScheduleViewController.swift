@@ -42,18 +42,29 @@ class ScheduleViewController: UIViewController, UITextFieldDelegate {
         UIApplication.shared.statusBarStyle = UIStatusBarStyle.default
     }
     
-    func updateScheduleDisplay(_ dayNum : Int) {
+    func updateScheduleDisplay(_ dayNum : Int, _ dateString : String) { // function updates schedule display taking the desired dayNumber and a date string to show in the date textbox
         Global.user?.student?.schedule?.update(dayNum)
         // show schedule Data
         p1.text = Global.user?.student?.schedule?.p1
         p2.text = Global.user?.student?.schedule?.p2
         p3.text = Global.user?.student?.schedule?.p3
         p4.text = Global.user?.student?.schedule?.p4
-        dayDisplay.text = "Day: \(dayNum)"
+        dateDisplay.text = dateString
+        
+        // handle when the today button is shown
         if (dateChanged) { // only show today button when the user has changed the date
             todayButton.layer.isHidden = false
         } else {
             todayButton.layer.isHidden = true
+        }
+        
+        // handle the text box showing the day making sure the raw daynumber is not shown when it is a holiday / special event (day 9 and 0)
+        if (dayNum == 9) {
+            dayDisplay.text = "Day: H"
+        } else if (dayNum == 0) {
+            dayDisplay.text = "Day: S"
+        } else {
+            dayDisplay.text = "Day: \(dayNum)"
         }
     }
     
@@ -62,8 +73,8 @@ class ScheduleViewController: UIViewController, UITextFieldDelegate {
         self.navigationItem.setHidesBackButton(true, animated : true)
         // Do any additional setup after loading the view.
         dateDisplay.delegate = self
-        dateDisplay.text = Global.dateString()
-        updateScheduleDisplay(Global.dayNum())
+        let currentDate = NSDate()
+        updateScheduleDisplay(Global.dayNum(), Global.dateString(currentDate))
     }
 
     // TEXT FIELD AND DATEPICKER CODE:
@@ -89,7 +100,7 @@ class ScheduleViewController: UIViewController, UITextFieldDelegate {
         let changedDayNum = Global.scheduleArray[month - 1][day]
         formatter.dateStyle = .long
         dateDisplay.text = formatter.string(from: sender.date)
-        updateScheduleDisplay(changedDayNum)
+        updateScheduleDisplay(changedDayNum, Global.dateString(sender.date as NSDate))
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -105,7 +116,8 @@ class ScheduleViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func todayPressed(_ sender: UIButton) { // runs when today button is pressed
         dateChanged = false
-        updateScheduleDisplay(Global.dayNum())
+        let date = NSDate()
+        updateScheduleDisplay(Global.dayNum(), Global.dateString(date))
     }
     
     

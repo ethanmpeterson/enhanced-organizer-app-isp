@@ -62,8 +62,7 @@ class Global { // Will store global variables that must be accessible accross al
         return month
     }
     
-    static let dateString : () -> (String) = {
-        let date = NSDate()
+    static let dateString : (NSDate) -> (String) = { date in
         let calendar = NSCalendar.current
         let formatter = DateFormatter()
         formatter.dateStyle = .long
