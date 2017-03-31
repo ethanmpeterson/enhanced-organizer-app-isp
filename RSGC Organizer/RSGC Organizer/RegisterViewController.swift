@@ -45,7 +45,16 @@ class RegisterViewController: UIViewController {
                 // post Data to backend
                 Alamofire.request("http://127.0.0.1:8000/register/", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
                     if response.result.isSuccess {
-                        
+                        if (response.response?.statusCode == 400) { // http code 400 is for bad request my backend returns this when bad data is given like username that is already used by another account
+                            let alert = UIAlertController(title: "Error", message: "Username / E-mail is already linked to another account.", preferredStyle: UIAlertControllerStyle.alert)
+                            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                            self.present(alert, animated: true, completion: nil)
+                        } else if (response.response?.statusCode == 201) { // http 201 means the user has been created and we can initialize the user object on the front end
+                            
+                        } else { // handle other errors
+                            let alert = UIAlertController(title: "Error", message: "Unkown server error", preferredStyle: UIAlertControllerStyle.alert)
+                            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                        }
                     } else {
                         let alert = UIAlertController(title: "Error", message: "Server Error", preferredStyle: UIAlertControllerStyle.alert)
                         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
