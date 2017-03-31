@@ -36,7 +36,27 @@ class RegisterViewController: UIViewController {
 
     @IBAction func continuePressed(_ sender: UIButton) {
         if (userField.text != "" && emailField.text != "" && passwordField.text != "" && reTypePasswordField.text != "") {
-            
+            if (passwordField.text == reTypePasswordField.text) {
+                let params : [String : Any] = [
+                    "username" : userField.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines),
+                    "email" : emailField.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines),
+                    "password" : passwordField.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                ]
+                // post Data to backend
+                Alamofire.request("http://127.0.0.1:8000/register/", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+                    if response.result.isSuccess {
+                        
+                    } else {
+                        let alert = UIAlertController(title: "Error", message: "Server Error", preferredStyle: UIAlertControllerStyle.alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                }
+            } else {
+                let alert = UIAlertController(title: "Error", message: "Password entries are not the same.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
         } else {
             // show dialog box telling user to complete all fields
             let alert = UIAlertController(title: "Error", message: "Please complete all fields.", preferredStyle: UIAlertControllerStyle.alert)
