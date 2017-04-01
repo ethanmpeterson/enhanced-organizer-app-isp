@@ -30,6 +30,8 @@ class Global { // Will store global variables that must be accessible accross al
     
     static var user : User?
     
+    static let apiRoot : String = "http://api.ethanpeterson.tech"
+    
     init() { } // Nothing to initialize so far
     
     // Write functions to return time variables used in determining day number

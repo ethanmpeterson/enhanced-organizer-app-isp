@@ -50,7 +50,11 @@ class RegisterViewController: UIViewController {
                             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
                             self.present(alert, animated: true, completion: nil)
                         } else if (response.response?.statusCode == 201) { // http 201 means the user has been created and we can initialize the user object on the front end
-                            
+                            if let rawRespnse = response.result.value {
+                                let rawUserData = rawRespnse as! NSDictionary
+                                Global.user = User(data: rawUserData)
+                                // present new view controller to enter schedule data
+                            }
                         } else { // handle other errors
                             let alert = UIAlertController(title: "Error", message: "Unkown server error", preferredStyle: UIAlertControllerStyle.alert)
                             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
