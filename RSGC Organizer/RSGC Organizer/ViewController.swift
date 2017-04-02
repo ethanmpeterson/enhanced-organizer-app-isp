@@ -21,6 +21,7 @@ class ViewController: UIViewController {
         self.view.endEditing(true)
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
@@ -46,8 +47,10 @@ class ViewController: UIViewController {
             headers[authorizationHeader.key] = authorizationHeader.value
         }
         
-        Alamofire.request("http://127.0.0.1:8000/get_student/", headers: headers)
+        
+        Alamofire.request("\(Global.apiRoot)/get_student/", headers: headers)
             .responseJSON { response in
+                print(response.result)
                 if (response.result.isSuccess) {
                     // parse response to ensure that there is a student ascociated with the user
                     if let resultVal = response.result.value {
@@ -58,20 +61,20 @@ class ViewController: UIViewController {
                             // navigate to schedule view controller
                             //scheduleViewObject.dataPassed = student
                             let id = studentData["user"] as! Int
-                            Alamofire.request("http://127.0.0.1:8000/users/\(id)/", method: .get).responseJSON { response in
+                            Alamofire.request("\(Global.apiRoot)/users/\(id)/", method: .get).responseJSON { response in
                                 if let rawValue = response.result.value {
                                     let userData = rawValue as! NSDictionary
                                     let studentId = studentData["id"] as! Int
                                     let params : [String : Int] = [
                                         "student" : studentId,
                                     ]
-                                    Alamofire.request("http://127.0.0.1:8000/get_schedule/", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+                                    Alamofire.request("\(Global.apiRoot)/get_schedule/", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
                                         if response.result.isSuccess {
                                             if let rawResult = response.result.value {
                                                 let JSONScheduleResponse = rawResult as? NSDictionary
                                                 let scheduleId = JSONScheduleResponse?["id"] as! Int
                                                 // get a hold of schedule
-                                                Alamofire.request("http://127.0.0.1:8000/schedules/\(scheduleId)/", method: .get).responseJSON { response in
+                                                Alamofire.request("\(Global.apiRoot)/schedules/\(scheduleId)/", method: .get).responseJSON { response in
                                                     if let rawVal = response.result.value {
                                                         let rawScheduleData = rawVal as! NSDictionary
                                                         // build complete user object and navigate to main View Controller with Schedule display

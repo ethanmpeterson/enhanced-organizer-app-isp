@@ -30,7 +30,7 @@ class Global { // Will store global variables that must be accessible accross al
     
     static var user : User?
     
-    static let apiRoot : String = "http://api.ethanpeterson.tech"
+    static let apiRoot : String = "http://127.0.0.1:8000"
     
     init() { } // Nothing to initialize so far
     
