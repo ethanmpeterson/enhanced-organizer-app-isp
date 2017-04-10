@@ -203,13 +203,79 @@
                     <view key="view" contentMode="scaleToFill" id="AUf-1J-7xx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Day 1 Period 1 Class " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XIz-OF-wgw">
+                                <rect key="frame" x="16" y="109" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="RHf-yf-d0A"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Day 1 Period 2 Class" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1QY-T9-rg5">
+                                <rect key="frame" x="16" y="179" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="b1b-K3-7wz"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Day 1 Period 3 Class" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LCQ-s9-QtH">
+                                <rect key="frame" x="16" y="249" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="I5X-tx-o4r"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Day 1 Period 4 Class" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hhz-k0-fEk">
+                                <rect key="frame" x="16" y="319" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Jj6-oJ-k10"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8W3-hL-W95">
+                                <rect key="frame" x="16" y="372" width="343" height="40"/>
+                                <color key="backgroundColor" red="0.83936065439999996" green="0.72530436519999997" blue="0.36069694159999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="mbT-Ib-jsX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hhz-k0-fEk" firstAttribute="trailing" secondItem="8W3-hL-W95" secondAttribute="trailing" id="19a-I0-6Vy"/>
+                            <constraint firstItem="1QY-T9-rg5" firstAttribute="trailing" secondItem="LCQ-s9-QtH" secondAttribute="trailing" id="4wk-U9-6HL"/>
+                            <constraint firstItem="1QY-T9-rg5" firstAttribute="top" secondItem="XIz-OF-wgw" secondAttribute="bottom" constant="40" id="C9Z-E7-TQe"/>
+                            <constraint firstItem="XIz-OF-wgw" firstAttribute="leading" secondItem="AUf-1J-7xx" secondAttribute="leadingMargin" id="KLk-PJ-p0d"/>
+                            <constraint firstItem="XIz-OF-wgw" firstAttribute="trailing" secondItem="1QY-T9-rg5" secondAttribute="trailing" id="MEV-yu-5dQ"/>
+                            <constraint firstItem="1QY-T9-rg5" firstAttribute="leading" secondItem="LCQ-s9-QtH" secondAttribute="leading" id="NCy-9Q-Tht"/>
+                            <constraint firstItem="8W3-hL-W95" firstAttribute="top" secondItem="hhz-k0-fEk" secondAttribute="bottom" constant="23" id="Qf3-os-23I"/>
+                            <constraint firstItem="LCQ-s9-QtH" firstAttribute="leading" secondItem="hhz-k0-fEk" secondAttribute="leading" id="Xe1-yb-Aet"/>
+                            <constraint firstItem="XIz-OF-wgw" firstAttribute="leading" secondItem="1QY-T9-rg5" secondAttribute="leading" id="YSc-uB-ICw"/>
+                            <constraint firstItem="LCQ-s9-QtH" firstAttribute="top" secondItem="1QY-T9-rg5" secondAttribute="bottom" constant="40" id="Zdh-NA-ssp"/>
+                            <constraint firstItem="LCQ-s9-QtH" firstAttribute="trailing" secondItem="hhz-k0-fEk" secondAttribute="trailing" id="ZhO-XQ-cOc"/>
+                            <constraint firstItem="hhz-k0-fEk" firstAttribute="top" secondItem="LCQ-s9-QtH" secondAttribute="bottom" constant="40" id="cpU-VG-PBC"/>
+                            <constraint firstItem="XIz-OF-wgw" firstAttribute="top" secondItem="AUf-1J-7xx" secondAttribute="topMargin" constant="109" id="dfG-B4-QAv"/>
+                            <constraint firstItem="hhz-k0-fEk" firstAttribute="leading" secondItem="8W3-hL-W95" secondAttribute="leading" id="fcC-ym-GR5"/>
+                            <constraint firstItem="XIz-OF-wgw" firstAttribute="trailing" secondItem="AUf-1J-7xx" secondAttribute="trailingMargin" id="gDS-eh-voD"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Enter Schedule" id="6Cq-4T-YLZ"/>
+                    <navigationItem key="navigationItem" title="Enter Schedule Day 1" id="6Cq-4T-YLZ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nv4-y4-HzG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2382" y="149"/>
+            <point key="canvasLocation" x="2381.5999999999999" y="148.87556221889056"/>
         </scene>
         <!--Schedule-->
         <scene sceneID="31D-nA-uIN">
