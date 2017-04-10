@@ -134,6 +134,7 @@
                                 </state>
                                 <connections>
                                     <action selector="continuePressed:" destination="Mwc-i7-JaJ" eventType="touchUpInside" id="nPA-UA-jJD"/>
+                                    <segue destination="aa0-B9-i2F" kind="show" identifier="enterSchedule" id="lpk-ch-leK"/>
                                 </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BCT-HL-Zhx">
@@ -191,6 +192,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="km8-RR-KtZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1645.5999999999999" y="148.87556221889056"/>
+        </scene>
+        <!--Enter Schedule-->
+        <scene sceneID="paY-ml-tf6">
+            <objects>
+                <viewController storyboardIdentifier="enterSchedule" title="Enter Schedule" id="aa0-B9-i2F" customClass="EnterScheduleViewController" customModule="RSGC_Organizer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OgU-Hd-Blo"/>
+                        <viewControllerLayoutGuide type="bottom" id="bEv-6N-DWV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AUf-1J-7xx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Enter Schedule" id="6Cq-4T-YLZ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nv4-y4-HzG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2414" y="149"/>
         </scene>
         <!--Schedule-->
         <scene sceneID="31D-nA-uIN">

@@ -43,7 +43,7 @@ class RegisterViewController: UIViewController {
                     "password" : passwordField.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                 ]
                 // post Data to backend
-                Alamofire.request("http://127.0.0.1:8000/register/", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
+                Alamofire.request("\(Global.apiRoot)/register/", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
                     if response.result.isSuccess {
                         if (response.response?.statusCode == 400) { // http code 400 is for bad request my backend returns this when bad data is given like username that is already used by another account
                             let alert = UIAlertController(title: "Error", message: "Username / E-mail is already linked to another account.", preferredStyle: UIAlertControllerStyle.alert)
@@ -52,8 +52,11 @@ class RegisterViewController: UIViewController {
                         } else if (response.response?.statusCode == 201) { // http 201 means the user has been created and we can initialize the user object on the front end
                             if let rawRespnse = response.result.value {
                                 let rawUserData = rawRespnse as! NSDictionary
-                                Global.user = User(data: rawUserData)
+                                //Global.user = User(data: rawUserData)
                                 // present new view controller to enter schedule data
+                                let scheduleEntryObject = self.storyboard?.instantiateViewController(withIdentifier: "enterSchedule") as! EnterScheduleViewController // prepare view controller object
+                                scheduleEntryObject.registeredUser = User(data: rawUserData)
+                                self.navigationController?.pushViewController(scheduleEntryObject, animated: true) // present schedule view controller
                             }
                         } else { // handle other errors
                             let alert = UIAlertController(title: "Error", message: "Unkown server error", preferredStyle: UIAlertControllerStyle.alert)
