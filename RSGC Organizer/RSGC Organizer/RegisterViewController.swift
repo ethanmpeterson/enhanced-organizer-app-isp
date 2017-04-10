@@ -40,7 +40,9 @@ class RegisterViewController: UIViewController {
                 let params : [String : Any] = [
                     "username" : userField.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines),
                     "email" : emailField.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines),
-                    "password" : passwordField.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                    "password" : passwordField.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines),
+                    "first_name" : "",
+                    "last_name" : ""
                 ]
                 // post Data to backend
                 Alamofire.request("\(Global.apiRoot)/register/", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON { response in
