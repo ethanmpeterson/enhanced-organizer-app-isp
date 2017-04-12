@@ -30,6 +30,7 @@
 		5300132B1D5BF2BC007D88BB /* SetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
 		533124ED1D63A7ED000C231E /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5377A1D81D774C2E001E4291 /* RoomNumberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomNumberViewController.swift; sourceTree = "<group>"; };
+		735892DC1E9EAC5500851EFB /* Independent_Study_Project_-_Checkpoint_1.docx */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Independent_Study_Project_-_Checkpoint_1.docx"; path = "../Independent_Study_Project_-_Checkpoint_1.docx"; sourceTree = "<group>"; };
 		7D85AE5181A4DF3CF2BD9A4B /* Pods-WhatsTheDayiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsTheDayiOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsTheDayiOS/Pods-WhatsTheDayiOS.debug.xcconfig"; sourceTree = "<group>"; };
 		A9D1BA6E8BF330F6140C7EFF /* Pods-WhatsTheDayiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsTheDayiOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsTheDayiOS/Pods-WhatsTheDayiOS.release.xcconfig"; sourceTree = "<group>"; };
 		AD16991574357AFFCAF15250 /* Pods_WhatsTheDayiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhatsTheDayiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +61,7 @@
 		0E925985A3C9F8A1F2524A69 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				735892DC1E9EAC5500851EFB /* Independent_Study_Project_-_Checkpoint_1.docx */,
 				AD16991574357AFFCAF15250 /* Pods_WhatsTheDayiOS.framework */,
 			);
 			name = Frameworks;
