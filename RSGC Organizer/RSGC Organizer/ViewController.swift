@@ -103,7 +103,7 @@ class ViewController: UIViewController {
                     let alert = UIAlertController(title: "Alert", message: "Connection to Server Failed", preferredStyle: UIAlertControllerStyle.alert) // show error message if the request failed
                     alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
-                }
+            }
         }
     }
     
