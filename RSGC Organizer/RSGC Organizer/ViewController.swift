@@ -34,6 +34,10 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         login.layer.cornerRadius = 15
         register.layer.cornerRadius = 15
+        
+        // load up schedule entry controller for test purposes
+        let viewObject = self.storyboard?.instantiateViewController(withIdentifier: "enterSchedule") as! ScheduleViewController // prepare view controller object
+        self.navigationController?.pushViewController(viewObject, animated: true) // present schedule view controller
     }
     
     

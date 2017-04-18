@@ -11,6 +11,15 @@ import UIKit
 class EnterScheduleViewController: UIViewController {
     
     var registeredUser : User!
+    var params : [String : String]!
+    
+    @IBOutlet weak var nextButton: UIButton!
+    
+    @IBOutlet weak var p1Field: UITextField!
+    @IBOutlet weak var p2Field: UITextField!
+    @IBOutlet weak var p3Field: UITextField!
+    @IBOutlet weak var p4Field: UITextField!
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -25,8 +34,24 @@ class EnterScheduleViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.setHidesBackButton(true, animated : true)
         // Do any additional setup after loading the view.
+        nextButton.layer.cornerRadius = 15
+        // setup params dictionary
+        for i in 1 ... 2 {
+            for j in 1 ... 4 {
+                params["d\(i)p\(j)"] = ""
+            }
+        }
+        print(params)
     }
 
+    @IBAction func nextPressed(_ sender: UIButton) {
+//        params = [
+//            "d1p1" : p1Field.text!,
+//            "d1p2" : p2Field.text!,
+//            "d1p3"
+//        ]
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
