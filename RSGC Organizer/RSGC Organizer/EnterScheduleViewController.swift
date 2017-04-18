@@ -11,7 +11,8 @@ import UIKit
 class EnterScheduleViewController: UIViewController {
     
     var registeredUser : User!
-    var params : [String : String]!
+    var params : [String : String] = [:]
+    var timesPressed = 0 // variable counting how many times the next button is pressed to know when the user has entered all of their schedule data
     
     @IBOutlet weak var nextButton: UIButton!
     
@@ -41,15 +42,33 @@ class EnterScheduleViewController: UIViewController {
                 params["d\(i)p\(j)"] = ""
             }
         }
-        print(params)
     }
 
+    func closeKeyboard() {
+        self.view.endEditing(true)
+    }
+    
+    
+    
     @IBAction func nextPressed(_ sender: UIButton) {
-//        params = [
-//            "d1p1" : p1Field.text!,
-//            "d1p2" : p2Field.text!,
-//            "d1p3"
-//        ]
+        if (p1Field.text != nil && p2Field.text != nil && p3Field.text != nil && p4Field.text != nil) {
+            if (timesPressed == 0) {
+                // update the view
+                timesPressed += 1
+                p1Field.placeholder = "Day 2 Period 1 Class"
+                p2Field.placeholder = "Day 2 Period 2 Class"
+                p3Field.placeholder = "Day 2 Period 3 Class"
+                p4Field.placeholder = "Day 2 Period 4 Class"
+                nextButton.setTitle("Finish", for: .normal)
+                
+                // update params dictionary with new data
+                
+            } else {
+                // make Alamofire calls to add schedule data and show schedule view controller
+                
+                // update params dictionary
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {
