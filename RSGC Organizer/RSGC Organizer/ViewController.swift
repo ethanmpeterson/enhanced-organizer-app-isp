@@ -36,8 +36,8 @@ class ViewController: UIViewController {
         register.layer.cornerRadius = 15
         
         // load up schedule entry controller for test purposes
-        let viewObject = self.storyboard?.instantiateViewController(withIdentifier: "enterSchedule") as! EnterScheduleViewController // prepare view controller object
-        self.navigationController?.pushViewController(viewObject, animated: true) // present schedule view controller
+//        let viewObject = self.storyboard?.instantiateViewController(withIdentifier: "enterSchedule") as! EnterScheduleViewController // prepare view controller object
+//        self.navigationController?.pushViewController(viewObject, animated: true) // present schedule view controller
     }
     
     

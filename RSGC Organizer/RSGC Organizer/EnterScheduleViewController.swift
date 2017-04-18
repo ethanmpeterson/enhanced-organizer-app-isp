@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import Alamofire
 
 class EnterScheduleViewController: UIViewController {
     
     var registeredUser : User!
+    var grade : String!
     var params : [String : String] = [:]
     var timesPressed = 0 // variable counting how many times the next button is pressed to know when the user has entered all of their schedule data
     
@@ -55,20 +57,49 @@ class EnterScheduleViewController: UIViewController {
             if (timesPressed == 0) {
                 // update the view
                 timesPressed += 1
-                p1Field.placeholder = "Day 2 Period 1 Class"
+                p1Field.placeholder = "Day 2 Period 1 Class" // change placeholder text to tell user that they should enter day 2 classes
                 p2Field.placeholder = "Day 2 Period 2 Class"
                 p3Field.placeholder = "Day 2 Period 3 Class"
                 p4Field.placeholder = "Day 2 Period 4 Class"
                 nextButton.setTitle("Finish", for: .normal)
                 
                 // update params dictionary with new data
+                params["d1p1"] = p1Field.text!
+                params["d1p2"] = p2Field.text!
+                params["d1p3"] = p3Field.text!
+                params["d1p4"] = p4Field.text!
                 
+                // clear text in fields so user can enter day 2 classes
+                p1Field.text = nil
+                p2Field.text = nil
+                p3Field.text = nil
+                p4Field.text = nil
             } else {
+                // update params dictionary
+                params["d2p1"] = p1Field.text!
+                params["d2p2"] = p2Field.text!
+                params["d2p3"] = p3Field.text!
+                params["d2p4"] = p4Field.text!
+                
                 // make Alamofire calls to add schedule data and show schedule view controller
                 
-                // update params dictionary
             }
         }
+    }
+    
+    func completeRegistration() -> Bool { // completes user registration by posting the schedule data to the database
+//        let studentParams : [String : Any] = [
+//            "user" : registeredUser.id,
+//            "grade" : 
+//        ]
+//        Alamofire.request("\(Global.apiRoot)/create_student/", method: .post, parameters: , encoding: JSONEncoding.default).responseJSON { response in
+//            if response.result.isSuccess {
+//                if response.response?.statusCode == 201 { // check if student has successfully been created
+//                    
+//                }
+//            }
+//        }
+        return true
     }
     
     override func didReceiveMemoryWarning() {
