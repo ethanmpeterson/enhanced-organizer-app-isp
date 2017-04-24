@@ -13,7 +13,7 @@ class EnterScheduleViewController: UIViewController {
     
     var registeredUser : User!
     var grade : String!
-    var params : [String : String] = [:]
+    var scheduleParams : [String : String] = [:]
     var timesPressed = 0 // variable counting how many times the next button is pressed to know when the user has entered all of their schedule data
     
     @IBOutlet weak var nextButton: UIButton!
@@ -41,7 +41,7 @@ class EnterScheduleViewController: UIViewController {
         // setup params dictionary
         for i in 1 ... 2 {
             for j in 1 ... 4 {
-                params["d\(i)p\(j)"] = ""
+                scheduleParams["d\(i)p\(j)"] = ""
             }
         }
     }
@@ -64,10 +64,10 @@ class EnterScheduleViewController: UIViewController {
                 nextButton.setTitle("Finish", for: .normal)
                 
                 // update params dictionary with new data
-                params["d1p1"] = p1Field.text!
-                params["d1p2"] = p2Field.text!
-                params["d1p3"] = p3Field.text!
-                params["d1p4"] = p4Field.text!
+                scheduleParams["d1p1"] = p1Field.text!
+                scheduleParams["d1p2"] = p2Field.text!
+                scheduleParams["d1p3"] = p3Field.text!
+                scheduleParams["d1p4"] = p4Field.text!
                 
                 // clear text in fields so user can enter day 2 classes
                 p1Field.text = nil
@@ -76,30 +76,44 @@ class EnterScheduleViewController: UIViewController {
                 p4Field.text = nil
             } else {
                 // update params dictionary
-                params["d2p1"] = p1Field.text!
-                params["d2p2"] = p2Field.text!
-                params["d2p3"] = p3Field.text!
-                params["d2p4"] = p4Field.text!
+                scheduleParams["d2p1"] = p1Field.text!
+                scheduleParams["d2p2"] = p2Field.text!
+                scheduleParams["d2p3"] = p3Field.text!
+                scheduleParams["d2p4"] = p4Field.text!
                 
                 // make Alamofire calls to add schedule data and show schedule view controller
-                
+                if (completeRegistration()) {
+                    // initialize schedule view controller
+                    print("Success")
+                } else {
+                    // show error message
+                    print("fail")
+                }
             }
         }
     }
     
-    func completeRegistration() -> Bool { // completes user registration by posting the schedule data to the database
-//        let studentParams : [String : Any] = [
-//            "user" : registeredUser.id,
-//            "grade" : 
-//        ]
-//        Alamofire.request("\(Global.apiRoot)/create_student/", method: .post, parameters: , encoding: JSONEncoding.default).responseJSON { response in
-//            if response.result.isSuccess {
-//                if response.response?.statusCode == 201 { // check if student has successfully been created
-//                    
-//                }
-//            }
-//        }
-        return true
+    func completeRegistration() -> Bool { // completes user registration by posting the schedule data to the database returns bool to say whether it was a success or not
+        let studentParams : [String : Any] = [
+            "user" : registeredUser.id,
+            "grade" : grade
+        ]
+        Alamofire.request("\(Global.apiRoot)/create_student/", method: .post, parameters: studentParams, encoding: JSONEncoding.default).responseJSON { response in
+            if response.result.isSuccess {
+                if response.response?.statusCode == 201 { // check if student has successfully been created
+                    // build student object
+                    let createdStudent : Student!
+                    if let studentJSON = response.result.value {
+                        let studentData = studentJSON as! NSDictionary
+                        createdStudent = Student(data: studentData)
+                    }
+                    Alamofire.request("\(Global.apiRoot)/create_schedule/", method: .post, parameters: scheduleParams, encodeing: JSONEncoding.default).responseJSON { response in
+                        
+                    }
+                }
+            }
+        }
+        return Global.registrationStatus
     }
     
     override func didReceiveMemoryWarning() {
