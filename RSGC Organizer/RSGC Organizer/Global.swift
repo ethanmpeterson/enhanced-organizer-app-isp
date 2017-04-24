@@ -32,7 +32,7 @@ class Global { // Will store global variables that must be accessible accross al
     
     static let apiRoot : String = "http://petersonbackend.duckdns.org:8000"
     
-    static let registrationStatus : Bool = false
+    static var registrationStatus : Bool = false
     
     init() { } // Nothing to initialize so far
     

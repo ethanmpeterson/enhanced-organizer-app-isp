@@ -13,7 +13,7 @@ class EnterScheduleViewController: UIViewController {
     
     var registeredUser : User!
     var grade : String!
-    var scheduleParams : [String : String] = [:]
+    var scheduleParams : [String : Any] = [:]
     var timesPressed = 0 // variable counting how many times the next button is pressed to know when the user has entered all of their schedule data
     
     @IBOutlet weak var nextButton: UIButton!
@@ -55,7 +55,7 @@ class EnterScheduleViewController: UIViewController {
     @IBAction func nextPressed(_ sender: UIButton) {
         if (p1Field.text != nil && p2Field.text != nil && p3Field.text != nil && p4Field.text != nil) {
             if (timesPressed == 0) {
-                // update the view
+                //vardate the view
                 timesPressed += 1
                 p1Field.placeholder = "Day 2 Period 1 Class" // change placeholder text to tell user that they should enter day 2 classes
                 p2Field.placeholder = "Day 2 Period 2 Class"
@@ -82,18 +82,12 @@ class EnterScheduleViewController: UIViewController {
                 scheduleParams["d2p4"] = p4Field.text!
                 
                 // make Alamofire calls to add schedule data and show schedule view controller
-                if (completeRegistration()) {
-                    // initialize schedule view controller
-                    print("Success")
-                } else {
-                    // show error message
-                    print("fail")
-                }
+                completeRegistration()
             }
         }
     }
     
-    func completeRegistration() -> Bool { // completes user registration by posting the schedule data to the database returns bool to say whether it was a success or not
+    func completeRegistration() { // completes user registration by posting the schedule data to the database returns bool to say whether it was a success or not
         let studentParams : [String : Any] = [
             "user" : registeredUser.id,
             "grade" : grade
@@ -102,18 +96,39 @@ class EnterScheduleViewController: UIViewController {
             if response.result.isSuccess {
                 if response.response?.statusCode == 201 { // check if student has successfully been created
                     // build student object
-                    let createdStudent : Student!
-                    if let studentJSON = response.result.value {
-                        let studentData = studentJSON as! NSDictionary
-                        createdStudent = Student(data: studentData)
-                    }
-                    Alamofire.request("\(Global.apiRoot)/create_schedule/", method: .post, parameters: self.scheduleParams, encoding: JSONEncoding.default).responseJSON { response in
-                        
+                    let createdStudent : Student = Student(data: response.result.value as! NSDictionary)
+//                    if let studentJSON = response.result.value {
+//                        let studentData = studentJSON as! NSDictionary
+//                        createdStudent = Student(data: studentData)
+//                    }
+                    self.scheduleParams["student"] = createdStudent.id // add student to schedule params now that it has been created
+                    
+                    Alamofire.request("\(Global.apiRoot)/create_schedule/", method: .post, parameters: self.scheduleParams, encoding: JSONEncoding.default).responseJSON { response in // create schedule based on data entered
+                        if response.result.isSuccess {
+                            if response.response?.statusCode == 201 {
+                                let createdSchedule : Schedule!
+                                if let scheduleJSON = response.result.value {
+                                    let scheduleData = scheduleJSON as! NSDictionary
+                                    createdSchedule = Schedule(data: scheduleData)
+                                    Global.registrationStatus = true // indicate that registration was successful
+                                    
+                                    // add newly created student and schedule to registered user
+                                    self.registeredUser.student = createdStudent
+                                    self.registeredUser.student?.schedule = createdSchedule
+                                    
+                                    // pass new User to the global class and show schedule view controller
+                                    Global.user = self.registeredUser
+                                    
+                                    // initialize view controller
+                                    let viewObject = self.storyboard?.instantiateViewController(withIdentifier: "scheduleView") as! ScheduleViewController // prepare view controller object
+                                    self.navigationController?.pushViewController(viewObject, animated: true) // present schedule view controller
+                                }
+                            }
+                        }
                     }
                 }
             }
         }
-        return Global.registrationStatus
     }
     
     override func didReceiveMemoryWarning() {
