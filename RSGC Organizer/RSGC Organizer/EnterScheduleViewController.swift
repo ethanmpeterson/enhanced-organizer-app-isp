@@ -107,7 +107,7 @@ class EnterScheduleViewController: UIViewController {
                         let studentData = studentJSON as! NSDictionary
                         createdStudent = Student(data: studentData)
                     }
-                    Alamofire.request("\(Global.apiRoot)/create_schedule/", method: .post, parameters: scheduleParams, encodeing: JSONEncoding.default).responseJSON { response in
+                    Alamofire.request("\(Global.apiRoot)/create_schedule/", method: .post, parameters: self.scheduleParams, encoding: JSONEncoding.default).responseJSON { response in
                         
                     }
                 }
