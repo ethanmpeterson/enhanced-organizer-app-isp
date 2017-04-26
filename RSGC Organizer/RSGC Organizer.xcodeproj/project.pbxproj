@@ -22,7 +22,6 @@
 		73B38C811E43A44E00FBC9F0 /* RSGC_OrganizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B38C801E43A44E00FBC9F0 /* RSGC_OrganizerTests.swift */; };
 		73B38C8C1E43A44E00FBC9F0 /* RSGC_OrganizerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B38C8B1E43A44E00FBC9F0 /* RSGC_OrganizerUITests.swift */; };
 		73D651141E9BB4EC001217DA /* EnterScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D651131E9BB4EC001217DA /* EnterScheduleViewController.swift */; };
-		73F862C61EB116B9006D60C7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F862C51EB116B9006D60C7 /* SettingsViewController.swift */; };
 		DD4355B3D0210614A4370483 /* Pods_RSGC_Organizer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4209019215F8DDE8BF4940B4 /* Pods_RSGC_Organizer.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,7 +66,6 @@
 		73B38C8B1E43A44E00FBC9F0 /* RSGC_OrganizerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSGC_OrganizerUITests.swift; sourceTree = "<group>"; };
 		73B38C8D1E43A44E00FBC9F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73D651131E9BB4EC001217DA /* EnterScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterScheduleViewController.swift; sourceTree = "<group>"; };
-		73F862C51EB116B9006D60C7 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A53EBF4A2213246243C81115 /* Pods-RSGC Organizer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSGC Organizer.release.xcconfig"; path = "Pods/Target Support Files/Pods-RSGC Organizer/Pods-RSGC Organizer.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,7 +140,6 @@
 				7382C4F01E858C39006C9AF6 /* RegisterViewController.swift */,
 				73D651131E9BB4EC001217DA /* EnterScheduleViewController.swift */,
 				73B38C6F1E43A44E00FBC9F0 /* Main.storyboard */,
-				73F862C51EB116B9006D60C7 /* SettingsViewController.swift */,
 				73B38C721E43A44E00FBC9F0 /* Assets.xcassets */,
 				73B38C741E43A44E00FBC9F0 /* LaunchScreen.storyboard */,
 				73B38C771E43A44E00FBC9F0 /* Info.plist */,
@@ -366,7 +363,6 @@
 			files = (
 				7382C4F11E858C39006C9AF6 /* RegisterViewController.swift in Sources */,
 				739988101E48BD8700713F58 /* Schedule.swift in Sources */,
-				73F862C61EB116B9006D60C7 /* SettingsViewController.swift in Sources */,
 				73B38C6E1E43A44E00FBC9F0 /* ViewController.swift in Sources */,
 				73B38C6C1E43A44E00FBC9F0 /* AppDelegate.swift in Sources */,
 				73D651141E9BB4EC001217DA /* EnterScheduleViewController.swift in Sources */,
