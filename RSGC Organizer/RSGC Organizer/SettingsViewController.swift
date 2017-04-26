@@ -10,10 +10,16 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        UIApplication.shared.statusBarStyle = .lightContent
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
