@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		733A1DF51EB3BB1F00333BC1 /* Gotham Bold Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 733A1DF41EB3BB1F00333BC1 /* Gotham Bold Regular.ttf */; };
+		733A1DF71EB3BDBF00333BC1 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 733A1DF61EB3BDBF00333BC1 /* logo.png */; };
 		7344918A1E820F3100662CF2 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734491891E820F3100662CF2 /* ScheduleViewController.swift */; };
 		7344918C1E8215CE00662CF2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7344918B1E8215CE00662CF2 /* User.swift */; };
 		7382C4F11E858C39006C9AF6 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7382C4F01E858C39006C9AF6 /* RegisterViewController.swift */; };
@@ -45,6 +47,8 @@
 /* Begin PBXFileReference section */
 		4209019215F8DDE8BF4940B4 /* Pods_RSGC_Organizer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RSGC_Organizer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4529FD46D9E3D5D6F51E60B5 /* Pods-RSGC Organizer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSGC Organizer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RSGC Organizer/Pods-RSGC Organizer.debug.xcconfig"; sourceTree = "<group>"; };
+		733A1DF41EB3BB1F00333BC1 /* Gotham Bold Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham Bold Regular.ttf"; sourceTree = "<group>"; };
+		733A1DF61EB3BDBF00333BC1 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		734491891E820F3100662CF2 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		7344918B1E8215CE00662CF2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7382C4F01E858C39006C9AF6 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +133,7 @@
 		73B38C6A1E43A44E00FBC9F0 /* RSGC Organizer */ = {
 			isa = PBXGroup;
 			children = (
+				733A1DF41EB3BB1F00333BC1 /* Gotham Bold Regular.ttf */,
 				73B38C6B1E43A44E00FBC9F0 /* AppDelegate.swift */,
 				73B38C6D1E43A44E00FBC9F0 /* ViewController.swift */,
 				734491891E820F3100662CF2 /* ScheduleViewController.swift */,
@@ -140,6 +145,7 @@
 				7382C4F01E858C39006C9AF6 /* RegisterViewController.swift */,
 				73D651131E9BB4EC001217DA /* EnterScheduleViewController.swift */,
 				73B38C6F1E43A44E00FBC9F0 /* Main.storyboard */,
+				733A1DF61EB3BDBF00333BC1 /* logo.png */,
 				73B38C721E43A44E00FBC9F0 /* Assets.xcassets */,
 				73B38C741E43A44E00FBC9F0 /* LaunchScreen.storyboard */,
 				73B38C771E43A44E00FBC9F0 /* Info.plist */,
@@ -287,6 +293,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				73B38C761E43A44E00FBC9F0 /* LaunchScreen.storyboard in Resources */,
+				733A1DF71EB3BDBF00333BC1 /* logo.png in Resources */,
+				733A1DF51EB3BB1F00333BC1 /* Gotham Bold Regular.ttf in Resources */,
 				73B38C731E43A44E00FBC9F0 /* Assets.xcassets in Resources */,
 				73B38C711E43A44E00FBC9F0 /* Main.storyboard in Resources */,
 			);

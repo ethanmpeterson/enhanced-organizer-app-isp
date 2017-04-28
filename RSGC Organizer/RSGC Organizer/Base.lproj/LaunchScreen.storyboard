@@ -6,8 +6,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gotham Bold Regular.ttf">
+            <string>GothamBold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -21,21 +27,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U9d-GS-5rv">
-                                <rect key="frame" x="16" y="115" width="343" height="84"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="RSGC Organizer">
-                                        <attributes>
-                                            <font key="NSFont" size="17" name="Georgia-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enhanced Organizer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Htf-0i-EaD">
+                                <rect key="frame" x="16" y="60" width="343" height="79"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="79" id="wcj-5a-bTP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GothamBold" family="Gotham Bold" pointSize="33"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="r74-Dj-HuM">
+                                <rect key="frame" x="16" y="147" width="343" height="430"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Htf-0i-EaD" firstAttribute="trailing" secondItem="r74-Dj-HuM" secondAttribute="trailing" id="DWX-PL-alL"/>
+                            <constraint firstItem="Htf-0i-EaD" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailingMargin" id="GTA-dD-bUa"/>
+                            <constraint firstItem="Htf-0i-EaD" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="40" id="QYM-fb-xSh"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="r74-Dj-HuM" secondAttribute="bottom" constant="90" id="Rdv-Ix-Oxt"/>
+                            <constraint firstItem="r74-Dj-HuM" firstAttribute="top" secondItem="Htf-0i-EaD" secondAttribute="bottom" constant="8" symbolic="YES" id="e5j-e7-iLl"/>
+                            <constraint firstItem="Htf-0i-EaD" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="sbh-rc-xAf"/>
+                            <constraint firstItem="Htf-0i-EaD" firstAttribute="leading" secondItem="r74-Dj-HuM" secondAttribute="leading" id="tep-3T-TjK"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -43,4 +57,7 @@
             <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo.png" width="1028" height="1456"/>
+    </resources>
 </document>
