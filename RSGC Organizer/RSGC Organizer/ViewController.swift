@@ -88,6 +88,8 @@ class ViewController: UIViewController {
                                                         print(studentData)
                                                         Global.user = User(data: userData, student: student)
                                                         // present new view controller to display the schedule now that all user data has been collected
+                                                        Global.username = self.usernameInput.text
+                                                        Global.password = self.passwordInput.text
                                                         let scheduleViewObject = self.storyboard?.instantiateViewController(withIdentifier: "scheduleView") as! ScheduleViewController // prepare view controller object
                                                         self.navigationController?.pushViewController(scheduleViewObject, animated: true) // present schedule view controller
                                                     }

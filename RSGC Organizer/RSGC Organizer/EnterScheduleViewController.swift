@@ -16,6 +16,8 @@ class EnterScheduleViewController: UIViewController {
     var scheduleParams : [String : Any] = [:]
     var timesPressed = 0 // variable counting how many times the next button is pressed to know when the user has entered all of their schedule data
     
+    var fromSettings : Bool = false
+    
     @IBOutlet weak var nextButton: UIButton!
     
     @IBOutlet weak var p1Field: UITextField!
@@ -35,7 +37,9 @@ class EnterScheduleViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.setHidesBackButton(true, animated : true)
+        if (!self.fromSettings) {
+            self.navigationItem.setHidesBackButton(true, animated : true)
+        }
         // Do any additional setup after loading the view.
         nextButton.layer.cornerRadius = 15
         // setup params dictionary
@@ -44,6 +48,7 @@ class EnterScheduleViewController: UIViewController {
                 scheduleParams["d\(i)p\(j)"] = ""
             }
         }
+        print(self.fromSettings)
     }
 
     func closeKeyboard() {
@@ -82,7 +87,11 @@ class EnterScheduleViewController: UIViewController {
                 scheduleParams["d2p4"] = p4Field.text!
                 
                 // make Alamofire calls to add schedule data and show schedule view controller
-                completeRegistration()
+                if (!self.fromSettings) {
+                    completeRegistration()
+                } else {
+                    updateSchedule()
+                }
             }
         }
     }
@@ -127,6 +136,23 @@ class EnterScheduleViewController: UIViewController {
                         }
                     }
                 }
+            }
+        }
+    }
+    
+    func updateSchedule() {
+        let scheduleId = Global.user?.student?.schedule?.id
+        let studentId = Global.user?.student?.id
+        let url = "\(Global.apiRoot)/schedules/\(scheduleId!)/"
+        scheduleParams["student"] = studentId!
+        Alamofire.request(url, method: .put, parameters: scheduleParams, encoding: JSONEncoding.default).responseJSON { response in // use Alamofire request to modify user's schedule using PUT request
+            print(response.response?.statusCode)
+            if response.result.isSuccess && response.response?.statusCode == 200 {
+                let newScheduleData = response.result.value as! NSDictionary
+                let newSchedule = Schedule(data: newScheduleData)
+                Global.user?.student?.schedule = newSchedule
+                let viewObject = self.storyboard?.instantiateViewController(withIdentifier: "scheduleView") as! ScheduleViewController // prepare view controller object
+                self.navigationController?.pushViewController(viewObject, animated: true) // present schedule view controller
             }
         }
     }

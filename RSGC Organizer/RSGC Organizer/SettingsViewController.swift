@@ -10,12 +10,36 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
+    @IBOutlet weak var saveDataSwitch: UISwitch!
+    @IBOutlet weak var saveLabel: UILabel!
+    @IBOutlet weak var changeScheduleButton: UIButton!
+    @IBOutlet weak var logOutButton: UIButton!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        UIApplication.shared.statusBarStyle = .lightContent
+        navigationController!.navigationBar.barTintColor = UIColor(red: 190.0 / 255, green: 25.0 / 255, blue: 46.0 / 255, alpha: 100.0 / 100.0)
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        saveLabel.layer.cornerRadius = 25
+        changeScheduleButton.layer.cornerRadius = 25
+        logOutButton.layer.cornerRadius = 25
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
 
+    
+    @IBAction func changeSchedulePressed(_ sender: UIButton) {
+        let viewObject = self.storyboard?.instantiateViewController(withIdentifier: "enterSchedule") as! EnterScheduleViewController // prepare view controller object
+        viewObject.fromSettings = true
+        self.navigationController?.pushViewController(viewObject, animated: true) // present schedule view controller
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

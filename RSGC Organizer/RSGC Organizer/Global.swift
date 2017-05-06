@@ -8,7 +8,7 @@
 
 import Foundation
 
-// Global is one of the classes making up the model layer of the application.
+
 class Global { // Will store global variables that must be accessible accross all view controllers
     
     static let scheduleArray : [[Int]] = [
@@ -30,9 +30,12 @@ class Global { // Will store global variables that must be accessible accross al
     
     static var user : User?
     
-    static let apiRoot : String = "http://petersonbackend.duckdns.org:8000"
+    static let apiRoot : String = "http://127.0.0.1:8000"//"http://petersonbackend.duckdns.org:8000"
     
     static var registrationStatus : Bool = false
+    
+    static var username : String? // holds username and password when authentication is needed in different parts of the the application
+    static var password : String?
     
     init() { } // Nothing to initialize so far
     
