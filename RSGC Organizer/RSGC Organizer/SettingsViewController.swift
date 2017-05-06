@@ -29,10 +29,23 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if let offlineMode = Global.isOfflineMode() {
+            saveDataSwitch.isOn = offlineMode
+        }
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func switched(_ sender: UISwitch) { // runs when value has changed on switch for whether to save account data locally or not
+        if (saveDataSwitch.isOn) {
+            Global.saveData((Global.user?.encoded())!, "userData")
+            Global.saveData((Global.user?.student?.encoded())!, "studentData")
+            Global.saveData((Global.user?.student?.schedule?.encoded())!, "scheduleData")
+            UserDefaults.standard.set(true, forKey: "offlineMode")
+        } else {
+            UserDefaults.standard.set(false, forKey: "offlineMode")
+        }
+        UserDefaults.standard.synchronize()
+    }
     
     @IBAction func changeSchedulePressed(_ sender: UIButton) {
         let viewObject = self.storyboard?.instantiateViewController(withIdentifier: "enterSchedule") as! EnterScheduleViewController // prepare view controller object

@@ -35,6 +35,16 @@ class ViewController: UIViewController {
         login.layer.cornerRadius = 15
         register.layer.cornerRadius = 15
         
+        if let offlineMode = Global.isOfflineMode() {
+            if (offlineMode) { // skip login process if user is in offline mode and use their data that is saved locally
+                Global.user = User(data: Global.getData("userData") as! NSDictionary)
+                Global.user?.student = Student(data: Global.getData("studentData") as! NSDictionary)
+                Global.user?.student?.schedule = Schedule(data: Global.getData("scheduleData") as! NSDictionary)
+                let viewObject = self.storyboard?.instantiateViewController(withIdentifier: "scheduleView") as! ScheduleViewController // prepare view controller object
+                self.navigationController?.pushViewController(viewObject, animated: true) // present schedule view controller
+            }
+        }
+        
         // load up schedule entry controller for test purposes
 //        let viewObject = self.storyboard?.instantiateViewController(withIdentifier: "enterSchedule") as! EnterScheduleViewController // prepare view controller object
 //        self.navigationController?.pushViewController(viewObject, animated: true) // present schedule view controller

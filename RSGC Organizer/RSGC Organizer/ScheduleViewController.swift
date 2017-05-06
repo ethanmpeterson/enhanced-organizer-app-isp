@@ -23,7 +23,7 @@ class ScheduleViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        self.navigationItem.setHidesBackButton(true, animated : true)
         // style various aspects of the view controller before it is shown
         p1.layer.cornerRadius = 20
         p2.layer.cornerRadius = 20

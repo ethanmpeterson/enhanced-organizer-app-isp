@@ -103,5 +103,9 @@ class Global { // Will store global variables that must be accessible accross al
         return unarchivedObject as? [String: Any]
     }
     
+    static let isOfflineMode : () -> (Bool?) = {
+        return UserDefaults.standard.object(forKey: "offlineMode") as? Bool
+    }
+    
     //NOTE: More global variables will be added as they are needed
 }
