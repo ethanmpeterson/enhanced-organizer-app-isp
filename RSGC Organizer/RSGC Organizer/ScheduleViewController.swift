@@ -112,7 +112,6 @@ class ScheduleViewController: UIViewController, UITextFieldDelegate {
         closeKeyboard()
     }
     
-    // BUTTON FUNCTIONS
     
     @IBAction func todayPressed(_ sender: UIButton) { // runs when today button is pressed
         dateChanged = false

@@ -80,5 +80,28 @@ class Global { // Will store global variables that must be accessible accross al
         return scheduleArray[month() - 1][day()]
     }
     
+    static let saveData : ([String : Any], String) -> (Bool) = { (dictionary, key) in
+        let archived = NSKeyedArchiver.archivedData(withRootObject: dictionary)
+        UserDefaults.standard.set(archived, forKey: key)
+        return UserDefaults.standard.synchronize()
+    }
+    
+    static let getData : (String) -> ([String : Any]?) = { key in
+        
+        // get the data using a guard let in case it is not there
+        guard let data = UserDefaults.standard.object(forKey: key) else {
+            return nil
+        }
+        
+        // Check if the data has the correct type using a guard let statement
+        guard let retrievedData = data as? Data else {
+            return nil
+        }
+        
+        // unarchive the dictionary
+        let unarchivedObject = NSKeyedUnarchiver.unarchiveObject(with: retrievedData)
+        return unarchivedObject as? [String: Any]
+    }
+    
     //NOTE: More global variables will be added as they are needed
 }
