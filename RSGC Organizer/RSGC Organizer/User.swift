@@ -44,4 +44,8 @@ class User {
         self.id = data["id"] as! Int
         self.student = student
     }
+    
+    func encoded() -> [String : Any] { // takes rawData property of type NSDictionary and turns it into key value pairs of [String : Any] to be saved to the phone's memory
+        return self.rawData as! [String : Any]
+    }
 }

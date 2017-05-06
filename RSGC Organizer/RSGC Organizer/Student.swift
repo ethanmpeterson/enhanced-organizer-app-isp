@@ -30,4 +30,8 @@ class Student {
         self.schedule = schedule
         self.rawData = data
     }
+    
+    func encoded() -> [String : Any] { // takes rawData property of type NSDictionary and turns it into key value pairs of [String : Any] to be saved to the phone's memory
+        return self.rawData as! [String : Any]
+    }
 }
