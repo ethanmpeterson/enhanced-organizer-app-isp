@@ -13,7 +13,7 @@
         <!--Login-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Login" id="BYZ-38-t0r" customClass="ViewController" customModule="RSGC_Organizer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login" title="Login" id="BYZ-38-t0r" customClass="ViewController" customModule="RSGC_Organizer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -474,7 +474,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="8Ho-Ex-CjK"/>
+                                    <action selector="logOutPressed:" destination="YQ8-Lf-7Zd" eventType="touchUpInside" id="TO1-fq-OB6"/>
                                 </connections>
                             </button>
                             <switch opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Io4-e1-8l5">
@@ -568,7 +568,4 @@
     <resources>
         <image name="ic_settings" width="24" height="24"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="8Ho-Ex-CjK"/>
-    </inferredMetricsTieBreakers>
 </document>

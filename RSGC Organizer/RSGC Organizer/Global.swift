@@ -30,7 +30,7 @@ class Global { // Will store global variables that must be accessible accross al
     
     static var user : User?
     
-    static let apiRoot : String = "http://127.0.0.1:8000"//"http://petersonbackend.duckdns.org:8000"
+    static let apiRoot : String = "http://petersonbackend.duckdns.org:8000"//"http://127.0.0.1:8000"
     
     static var registrationStatus : Bool = false
     

@@ -53,6 +53,18 @@ class SettingsViewController: UIViewController {
         self.navigationController?.pushViewController(viewObject, animated: true) // present schedule view controller
     }
     
+    @IBAction func logOutPressed(_ sender: UIButton) {
+        if (!saveDataSwitch.isOn) {
+            let viewObject = self.storyboard?.instantiateViewController(withIdentifier: "login") as! ViewController // prepare view controller object
+            self.navigationController?.pushViewController(viewObject, animated: true) // present schedule view controller
+        } else {
+            let alert = UIAlertController(title: "Error", message: "You must disable offline mode to log out", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
