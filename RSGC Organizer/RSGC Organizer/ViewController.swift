@@ -27,6 +27,7 @@ class ViewController: UIViewController {
         navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         UIApplication.shared.statusBarStyle = .lightContent
         navigationController!.navigationBar.barTintColor = UIColor(red: 220.0 / 255, green: 184.0 / 255, blue: 72.0/255, alpha: 100.0 / 100.0)
+        self.navigationItem.setHidesBackButton(true, animated : true)
     }
     
     override func viewDidLoad() {

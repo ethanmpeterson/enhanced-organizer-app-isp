@@ -48,9 +48,15 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func changeSchedulePressed(_ sender: UIButton) {
-        let viewObject = self.storyboard?.instantiateViewController(withIdentifier: "enterSchedule") as! EnterScheduleViewController // prepare view controller object
-        viewObject.fromSettings = true
-        self.navigationController?.pushViewController(viewObject, animated: true) // present schedule view controller
+        if (!saveDataSwitch.isOn) {
+            let viewObject = self.storyboard?.instantiateViewController(withIdentifier: "enterSchedule") as! EnterScheduleViewController // prepare view controller object
+            viewObject.fromSettings = true
+            self.navigationController?.pushViewController(viewObject, animated: true) // present schedule view controller
+        } else {
+            let alert = UIAlertController(title: "Error", message: "You must disable offline mode to change your schedule", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     @IBAction func logOutPressed(_ sender: UIButton) {
